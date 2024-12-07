@@ -7,7 +7,7 @@
       "RelativeMoniker": "D:0:0:{2E9B00A0-E2E6-4FCA-B44F-761FB54C315E}|Blaze.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2E9B00A0-E2E6-4FCA-B44F-761FB54C315E}|Blaze.csproj|c:\\users\\mkaan\\programming\\c#\\dotnetprojects\\blaze\\blaze\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{2E9B00A0-E2E6-4FCA-B44F-761FB54C315E}|Blaze.csproj|C:\\Users\\mkaan\\Programming\\c#\\dotnetProjects\\Blaze\\Blaze\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2E9B00A0-E2E6-4FCA-B44F-761FB54C315E}|Blaze.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -26,16 +26,12 @@
               "Title": "Form1.cs [Tasar\u0131m]",
               "DocumentMoniker": "C:\\Users\\mkaan\\Programming\\c#\\dotnetProjects\\Blaze\\Blaze\\Form1.cs",
               "RelativeDocumentMoniker": "Form1.cs",
-              "ToolTip": "C:\\Users\\mkaan\\Programming\\c#\\dotnetProjects\\Blaze\\Blaze\\Form1.cs [Tasar\u0131m]",
-              "RelativeToolTip": "Form1.cs [Tasar\u0131m]",
+              "ToolTip": "C:\\Users\\mkaan\\Programming\\c#\\dotnetProjects\\Blaze\\Blaze\\Form1.cs [Tasar\u0131m]*",
+              "RelativeToolTip": "Form1.cs [Tasar\u0131m]*",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-05T17:20:25.271Z",
               "IsPinned": true,
               "EditorCaption": " [Tasar\u0131m]"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
             },
             {
               "$type": "Document",
@@ -45,10 +41,9 @@
               "RelativeDocumentMoniker": "Form1.cs",
               "ToolTip": "C:\\Users\\mkaan\\Programming\\c#\\dotnetProjects\\Blaze\\Blaze\\Form1.cs",
               "RelativeToolTip": "Form1.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAADYAAAAAAAAAAIA4wEcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-06T15:54:55.539Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-06T15:54:55.539Z"
             }
           ]
         }
