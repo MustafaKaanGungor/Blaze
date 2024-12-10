@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Npgsql;
+
 
 namespace Blaze
 {
@@ -17,57 +19,50 @@ namespace Blaze
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-
-        }
+        NpgsqlConnection baglanti = new NpgsqlConnection("server = localHost; port = 5432; Database = SteamClone;" +
+            " user ID = postgres; password = 123");
 
         private void mailTextBox_TextChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void loginButton_Click(object sender, EventArgs e)
         {
+            string usrMail = mailTextBox.Text;
+            string usrPassword = passwordTextBox.Text;
 
+            try
+            {
+                string query = "SELECT * FROM Users WHERE (uName = '" + usrMail + "' OR uEmail = '" + usrMail +"')" +
+                    " AND uPassword = '" + usrPassword + "'";
+                NpgsqlDataAdapter da = new NpgsqlDataAdapter(query, baglanti);
+
+                DataTable dTable = new DataTable();
+                da.Fill(dTable);
+
+                if (dTable.Rows.Count > 0)
+                {
+                    Form2 form2 = new Form2();
+                    form2.Show();
+                    this.Hide();
+                }
+            }
+            catch { }
         }
 
-        private void label2_Click(object sender, EventArgs e)
+        private void passwordTextBox_TextChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
+        private void keepLoginCheckbox_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void signUpButton_Click(object sender, EventArgs e)
         {
 
         }
