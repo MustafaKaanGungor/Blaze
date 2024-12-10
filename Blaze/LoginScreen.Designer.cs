@@ -1,6 +1,6 @@
 ﻿namespace Blaze
 {
-    partial class Form1
+    partial class LoginScreen
     {
         /// <summary>
         ///Gerekli tasarımcı değişkeni.
@@ -259,7 +259,7 @@
             this.ForgotPasswordButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.ForgotPasswordButton.UseVisualStyleBackColor = false;
             // 
-            // Form1
+            // LoginScreen
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoSize = true;
@@ -283,8 +283,8 @@
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "LoginScreen";
+            this.Text = "Blaze - Login";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);

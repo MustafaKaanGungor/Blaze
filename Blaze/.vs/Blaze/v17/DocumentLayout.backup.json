@@ -3,24 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\mkaan\\Programming\\c#\\dotnetProjects\\Blaze\\Blaze\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{2E9B00A0-E2E6-4FCA-B44F-761FB54C315E}|Blaze.csproj|c:\\users\\mkaan\\programming\\c#\\dotnetprojects\\blaze\\blaze\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{2E9B00A0-E2E6-4FCA-B44F-761FB54C315E}|Blaze.csproj|C:\\Users\\mkaan\\Programming\\c#\\dotnetProjects\\Blaze\\Blaze\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{2E9B00A0-E2E6-4FCA-B44F-761FB54C315E}|Blaze.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2E9B00A0-E2E6-4FCA-B44F-761FB54C315E}|Blaze.csproj|C:\\Users\\mkaan\\Programming\\c#\\dotnetProjects\\Blaze\\Blaze\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2E9B00A0-E2E6-4FCA-B44F-761FB54C315E}|Blaze.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2E9B00A0-E2E6-4FCA-B44F-761FB54C315E}|Blaze.csproj|c:\\users\\mkaan\\programming\\c#\\dotnetprojects\\blaze\\blaze\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2E9B00A0-E2E6-4FCA-B44F-761FB54C315E}|Blaze.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2E9B00A0-E2E6-4FCA-B44F-761FB54C315E}|Blaze.csproj|C:\\Users\\mkaan\\Programming\\c#\\dotnetProjects\\Blaze\\Blaze\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2E9B00A0-E2E6-4FCA-B44F-761FB54C315E}|Blaze.csproj|solutionrelative:form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2E9B00A0-E2E6-4FCA-B44F-761FB54C315E}|Blaze.csproj|C:\\Users\\mkaan\\Programming\\c#\\dotnetProjects\\Blaze\\Blaze\\form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{2E9B00A0-E2E6-4FCA-B44F-761FB54C315E}|Blaze.csproj|solutionrelative:form2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2E9B00A0-E2E6-4FCA-B44F-761FB54C315E}|Blaze.csproj|C:\\Users\\mkaan\\Programming\\c#\\dotnetProjects\\Blaze\\Blaze\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2E9B00A0-E2E6-4FCA-B44F-761FB54C315E}|Blaze.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -46,10 +38,6 @@
               "EditorCaption": " [Tasar\u0131m]"
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{e5c86464-96be-4d7c-9a8b-abcb3bbf5f92}"
-            },
-            {
               "$type": "Document",
               "DocumentIndex": 2,
               "Title": "Form2.cs",
@@ -57,44 +45,27 @@
               "RelativeDocumentMoniker": "Form2.cs",
               "ToolTip": "C:\\Users\\mkaan\\Programming\\c#\\dotnetProjects\\Blaze\\Blaze\\Form2.cs",
               "RelativeToolTip": "Form2.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAB0AAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-07T12:22:48.507Z"
+              "WhenOpened": "2024-12-07T12:22:48.507Z",
+              "IsPinned": true
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Form2.cs [Tasar\u0131m]",
-              "DocumentMoniker": "C:\\Users\\mkaan\\Programming\\c#\\dotnetProjects\\Blaze\\Blaze\\Form2.cs",
-              "RelativeDocumentMoniker": "Form2.cs",
-              "ToolTip": "C:\\Users\\mkaan\\Programming\\c#\\dotnetProjects\\Blaze\\Blaze\\Form2.cs [Tasar\u0131m]",
-              "RelativeToolTip": "Form2.cs [Tasar\u0131m]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-07T12:21:29.417Z"
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e5c86464-96be-4d7c-9a8b-abcb3bbf5f92}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\mkaan\\Programming\\c#\\dotnetProjects\\Blaze\\Blaze\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\mkaan\\Programming\\c#\\dotnetProjects\\Blaze\\Blaze\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAlAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-07T12:16:11.486Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
               "Title": "Form1.cs",
               "DocumentMoniker": "C:\\Users\\mkaan\\Programming\\c#\\dotnetProjects\\Blaze\\Blaze\\Form1.cs",
               "RelativeDocumentMoniker": "Form1.cs",
               "ToolTip": "C:\\Users\\mkaan\\Programming\\c#\\dotnetProjects\\Blaze\\Blaze\\Form1.cs",
               "RelativeToolTip": "Form1.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAACoAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-06T15:54:55.539Z"
+              "WhenOpened": "2024-12-06T15:54:55.539Z",
+              "EditorCaption": ""
             }
           ]
         }
