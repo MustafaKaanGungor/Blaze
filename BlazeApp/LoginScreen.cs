@@ -10,8 +10,12 @@ using System.Windows.Forms;
 
 namespace Blaze
 {
+
     public partial class LoginScreen : Form
     {
+        //NpgsqlConnection baglanti = new NpgsqlConnection("server = localHost; port = 5432; Database = Blaze;" +
+        //" user ID = postgres; password = 123");
+        
         public LoginScreen()
         {
             InitializeComponent();

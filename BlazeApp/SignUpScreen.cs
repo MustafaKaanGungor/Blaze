@@ -16,8 +16,8 @@ namespace Blaze
     public partial class SignUpScreen : Form
     {
         //NpgsqlConnection baglanti = new NpgsqlConnection("server = localHost; port = 5432; Database = Blaze;" +
-   //" user ID = postgres; password = 123");
-
+        //" user ID = postgres; password = 123");
+        
         public SignUpScreen()
         {
             InitializeComponent();
@@ -56,7 +56,7 @@ namespace Blaze
             string password = PasswordTextBox.Text;
             string passwordConf = PasswordConfTextBox.Text;
             DateTime birthDateG;
-            //baglanti.Open();
+            
             if (true)
             {
             }
@@ -84,6 +84,11 @@ namespace Blaze
                 MessageBox.Show("Şifre en az 6 karakter olmalıdır.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            if (password != passwordConf)
+            {
+                MessageBox.Show("Girilen şifreler eşleşmiyor.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             // Kayıt işlemini başlat
             RegisterUser(usrName, usrMail, password, birthDateG);
         }
@@ -96,7 +101,7 @@ namespace Blaze
 
 
             // Veritabanına kullanıcıyı eklemek için SQL sorgusu
-            string query = "INSERT INTO Users (uName, uEmail, uPassword,birthDate,role) VALUES (@Username, @Email, @Password,@birthDay,'Admin')";
+            string query = "INSERT INTO Users (uName, uEmail, uPassword,birthDate,role) VALUES (@Username, @Email, @Password,@birthDay,'PersonelUser')";
             //using (var command = new Npgsql.NpgsqlCommand(query, baglanti))
             {
                 // Parametreleri ekle
@@ -108,6 +113,7 @@ namespace Blaze
                 {
                     //command.ExecuteNonQuery();
                     MessageBox.Show("Kayıt başarılı!", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //baglanti.Close();
                 }
                 catch (Exception ex)
                 {
