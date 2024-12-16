@@ -112,7 +112,5 @@ namespace Blaze
                 Location = new Point(p.X - this._start_point.X, p.Y - this._start_point.Y);
             }
         }
-
-        
     }
 }

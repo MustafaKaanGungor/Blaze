@@ -12,6 +12,9 @@ namespace Blaze
 {
     public partial class MainMenu : Form
     {
+        Store storeForm;
+        Library libraryForm;
+        Account accountForm;
         public MainMenu()
         {
             InitializeComponent();
@@ -63,6 +66,73 @@ namespace Blaze
                 Point p = PointToScreen(e.Location);
                 Location = new Point(p.X - this._start_point.X, p.Y - this._start_point.Y);
             }
+        }
+
+        private void BlazeButton_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void button19_Click(object sender, EventArgs e)
+        {
+            if(storeForm == null)
+            {
+                storeForm = new Store();
+                storeForm.FormClosed += StoreForm_FormClosed;
+                storeForm.MdiParent = this;
+                storeForm.Dock = DockStyle.Fill;
+                storeForm.Show();
+            } else
+            {
+                storeForm.Activate();
+            }
+        }
+
+        private void StoreForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            storeForm = null;
+        }
+
+        private void button17_Click(object sender, EventArgs e)
+        {
+            if (libraryForm == null)
+            {
+                libraryForm = new Library();
+                libraryForm.FormClosed += LibraryForm_FormClosed;
+                libraryForm.MdiParent = this;
+                libraryForm.Dock = DockStyle.Fill;
+                libraryForm.Show();
+            }
+            else
+            {
+                libraryForm.Activate();
+            }
+        }
+
+        private void LibraryForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            libraryForm = null;
+        }
+
+        private void button18_Click(object sender, EventArgs e)
+        {
+            if (accountForm == null)
+            {
+                accountForm = new Account();
+                accountForm.FormClosed += AccountForm_FormClosed;
+                accountForm.MdiParent = this;
+                accountForm.Dock = DockStyle.Fill;
+                accountForm.Show();
+            }
+            else
+            {
+                accountForm.Activate();
+            }
+        }
+
+        private void AccountForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            accountForm = null;
         }
     }
 }
