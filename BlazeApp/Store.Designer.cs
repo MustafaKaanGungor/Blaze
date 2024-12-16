@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Store));
             this.label1 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.SuspendLayout();
@@ -39,7 +40,7 @@
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(90)))), ((int)(((byte)(30)))));
             this.label1.Location = new System.Drawing.Point(52, 42);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(270, 54);
+            this.label1.Size = new System.Drawing.Size(265, 53);
             this.label1.TabIndex = 0;
             this.label1.Text = "Blaze Store";
             // 
@@ -59,6 +60,7 @@
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Store";
             this.Text = "Store";
             this.Load += new System.EventHandler(this.Store_Load);
