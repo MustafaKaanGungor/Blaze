@@ -58,6 +58,7 @@
     <Compile Include="Library.Designer.cs">
       <DependentUpon>Library.cs</DependentUpon>
     </Compile>
+    <Compile Include="LoginCredentials.cs" />
     <Compile Include="LoginScreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -148,6 +149,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\folder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\splash.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

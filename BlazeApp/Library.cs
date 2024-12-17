@@ -22,5 +22,14 @@ namespace Blaze
             this.ControlBox = false;
         }
 
+        private void gameOrderBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //oyunların sıralamasını değiştir
+        }
+
+        private void genreFilterBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //oyunları türe göre filtrele
+        }
     }
 }

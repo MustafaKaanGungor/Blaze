@@ -42,6 +42,7 @@
             this.signUpButton = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -108,7 +109,7 @@
             this.loginButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(90)))), ((int)(((byte)(30)))));
             this.loginButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.loginButton.Font = new System.Drawing.Font("Lucida Sans Unicode", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.loginButton.Location = new System.Drawing.Point(42, 425);
+            this.loginButton.Location = new System.Drawing.Point(42, 440);
             this.loginButton.Name = "loginButton";
             this.loginButton.Size = new System.Drawing.Size(119, 39);
             this.loginButton.TabIndex = 5;
@@ -205,11 +206,25 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(550, 44);
+            this.pictureBox1.BackgroundImage = global::Blaze.Properties.Resources.splash;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox1.Location = new System.Drawing.Point(520, 37);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(900, 750);
+            this.pictureBox1.Size = new System.Drawing.Size(949, 771);
             this.pictureBox1.TabIndex = 9;
             this.pictureBox1.TabStop = false;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Font = new System.Drawing.Font("Lucida Sans Unicode", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.checkBox1.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.checkBox1.Location = new System.Drawing.Point(42, 388);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(212, 27);
+            this.checkBox1.TabIndex = 10;
+            this.checkBox1.Text = "Keep me logged in";
+            this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // LoginScreen
             // 
@@ -217,6 +232,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
             this.ClientSize = new System.Drawing.Size(1450, 800);
+            this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.signUpButton);
@@ -231,6 +247,7 @@
             this.Name = "LoginScreen";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Blaze - Login";
+            this.Load += new System.EventHandler(this.LoginScreen_Load);
             this.flowLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -254,5 +271,6 @@
         private System.Windows.Forms.Button signUpButton;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }

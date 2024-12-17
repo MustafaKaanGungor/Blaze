@@ -15,6 +15,8 @@ namespace Blaze
     {
         //NpgsqlConnection baglanti = new NpgsqlConnection("server = localHost; port = 5432; Database = Blaze;" +
         //" user ID = postgres; password = 123");
+
+
         
         public LoginScreen()
         {
@@ -112,5 +114,11 @@ namespace Blaze
                 Location = new Point(p.X - this._start_point.X, p.Y - this._start_point.Y);
             }
         }
+
+        private void LoginScreen_Load(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }
