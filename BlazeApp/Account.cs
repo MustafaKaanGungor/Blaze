@@ -15,11 +15,11 @@ namespace Blaze
     {
 
         private int userID; // Kullanıcı ID'si
-        public Account(int currentUserId)
+        public Account()
         {
 
             InitializeComponent();
-            userID = currentUserId;
+            //userID = currentUserId;
             
         }
         NpgsqlConnection baglanti = new NpgsqlConnection("server = localHost; port = 5432; Database = Blaze;" +

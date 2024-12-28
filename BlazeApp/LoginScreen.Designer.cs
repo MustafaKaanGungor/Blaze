@@ -43,6 +43,9 @@
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.mailCaution = new System.Windows.Forms.Label();
+            this.cannotLogin = new System.Windows.Forms.Label();
+            this.cannotConnect = new System.Windows.Forms.Label();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -109,7 +112,7 @@
             this.loginButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(90)))), ((int)(((byte)(30)))));
             this.loginButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.loginButton.Font = new System.Drawing.Font("Lucida Sans Unicode", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.loginButton.Location = new System.Drawing.Point(42, 440);
+            this.loginButton.Location = new System.Drawing.Point(42, 464);
             this.loginButton.Name = "loginButton";
             this.loginButton.Size = new System.Drawing.Size(119, 39);
             this.loginButton.TabIndex = 5;
@@ -225,6 +228,43 @@
             this.checkBox1.TabIndex = 10;
             this.checkBox1.Text = "Keep me logged in";
             this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
+            // mailCaution
+            // 
+            this.mailCaution.AutoSize = true;
+            this.mailCaution.Font = new System.Drawing.Font("Lucida Sans Unicode", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.mailCaution.ForeColor = System.Drawing.Color.Red;
+            this.mailCaution.Location = new System.Drawing.Point(38, 248);
+            this.mailCaution.Name = "mailCaution";
+            this.mailCaution.Size = new System.Drawing.Size(274, 23);
+            this.mailCaution.TabIndex = 11;
+            this.mailCaution.Text = "! Mail isn\'t in correct format";
+            this.mailCaution.Visible = false;
+            // 
+            // cannotLogin
+            // 
+            this.cannotLogin.AutoSize = true;
+            this.cannotLogin.Font = new System.Drawing.Font("Lucida Sans Unicode", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.cannotLogin.ForeColor = System.Drawing.Color.Red;
+            this.cannotLogin.Location = new System.Drawing.Point(38, 427);
+            this.cannotLogin.Name = "cannotLogin";
+            this.cannotLogin.Size = new System.Drawing.Size(273, 23);
+            this.cannotLogin.TabIndex = 12;
+            this.cannotLogin.Text = "! Mail or password is wrong";
+            this.cannotLogin.Visible = false;
+            // 
+            // cannotConnect
+            // 
+            this.cannotConnect.AutoSize = true;
+            this.cannotConnect.Font = new System.Drawing.Font("Lucida Sans Unicode", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.cannotConnect.ForeColor = System.Drawing.Color.Red;
+            this.cannotConnect.Location = new System.Drawing.Point(39, 633);
+            this.cannotConnect.Name = "cannotConnect";
+            this.cannotConnect.Size = new System.Drawing.Size(259, 23);
+            this.cannotConnect.TabIndex = 13;
+            this.cannotConnect.Text = "! Cannot connect to server";
+            this.cannotConnect.Visible = false;
             // 
             // LoginScreen
             // 
@@ -232,6 +272,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
             this.ClientSize = new System.Drawing.Size(1450, 800);
+            this.Controls.Add(this.cannotConnect);
+            this.Controls.Add(this.cannotLogin);
+            this.Controls.Add(this.mailCaution);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label4);
@@ -272,5 +315,8 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Label mailCaution;
+        private System.Windows.Forms.Label cannotLogin;
+        private System.Windows.Forms.Label cannotConnect;
     }
 }

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
+using Npgsql;
 
 namespace Blaze
 {
@@ -23,9 +24,18 @@ namespace Blaze
             InitializeComponent();
         }
 
+        NpgsqlConnection baglanti = new NpgsqlConnection("server = localHost; port = 5432; Database = SteamClone;" +
+    " user ID = postgres; password = 123");
+
         private void mailTextBox_TextChanged(object sender, EventArgs e)
         {
-
+            if(!mailTextBox.Text.EndsWith(".com") || !mailTextBox.Text.Contains("@"))
+            {
+                mailCaution.Visible = true;
+            } else
+            {
+                mailCaution.Visible = false;
+            }
         }
 
         private void passwordTextBox_TextChanged(object sender, EventArgs e)
@@ -35,12 +45,6 @@ namespace Blaze
 
         private void loginButton_Click(object sender, EventArgs e)
         {
-            MainMenu menu = new MainMenu();
-            menu.Show();
-            this.Hide();
-
-
-            /*
             string usrMail = mailTextBox.Text;
             string usrPassword = passwordTextBox.Text;
 
@@ -48,18 +52,30 @@ namespace Blaze
             {
                 string query = "SELECT * FROM Users WHERE (uName = '" + usrMail + "' OR uEmail = '" + usrMail + "')" +
                     " AND uPassword = '" + usrPassword + "'";
-                //NpgsqlDataAdapter da = new NpgsqlDataAdapter(query, baglanti);
+                NpgsqlDataAdapter da = new NpgsqlDataAdapter(query, baglanti);
 
                 DataTable dTable = new DataTable();
-                //da.Fill(dTable);
+                da.Fill(dTable);
 
                 if (dTable.Rows.Count > 0)
                 {
-                    
+                    if (LoginCredentials.keepLogin == true)
+                    {
+                        LoginCredentials.usernameOrEmail = usrMail;
+                        LoginCredentials.password = usrPassword;
+                    }
+
+                    MainMenu menu1 = new MainMenu();
+                    menu1.Show();
+                    this.Hide();
+                } else
+                {
+                    cannotLogin.Visible = true;
                 }
             }
-            catch { }
-            */
+            catch { 
+                cannotConnect.Visible = true;
+            }
         }
 
         private void signUpButton_Click(object sender, EventArgs e)
@@ -120,6 +136,19 @@ namespace Blaze
         private void LoginScreen_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if(checkBox1.Checked == true)
+            {
+                LoginCredentials.keepLogin = true;
+            } else
+            {
+                LoginCredentials.keepLogin = false;
+                LoginCredentials.usernameOrEmail = String.Empty;
+                LoginCredentials.password = String.Empty;
+            }
         }
 
     }

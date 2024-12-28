@@ -17,7 +17,7 @@ namespace Blaze
     {
         NpgsqlConnection baglanti = new NpgsqlConnection("server = localHost; port = 5432; Database = Blaze;" +
         " user ID = postgres; password = 123");
-       
+        DateTime birthDateG;
         public SignUpScreen()
         {
             InitializeComponent();
@@ -25,27 +25,81 @@ namespace Blaze
     
         private void mailTextBox_TextChanged(object sender, EventArgs e)
         {
-
+            if (!mailTextBox.Text.EndsWith(".com") || !mailTextBox.Text.Contains("@"))
+            {
+                mailCaution.Visible = true;
+            }
+            else
+            {
+                mailCaution.Visible = false;
+            }
         }
 
         private void usernameTextBox_TextChanged(object sender, EventArgs e)
         {
+            try
+            {
+                string query = "SELECT * FROM Users WHERE uName = '" + usernameTextBox.Text;
+                NpgsqlDataAdapter da = new NpgsqlDataAdapter(query, baglanti);
 
+                DataTable dTable = new DataTable();
+                da.Fill(dTable);
+
+                if (!(dTable.Rows.Count > 0))
+                {
+                    usrnameCaution.Visible = true;
+                }
+                else
+                {
+                    usrnameCaution.Visible = false;
+                }
+            }
+            catch
+            {
+
+            }
         }
 
         private void BirthdateTextBox_TextChanged(object sender, EventArgs e)
         {
-
+            if (!DateTime.TryParse(BirthdateTextBox.Text, out birthDateG))
+            {
+                bdateCaution.Visible=true;
+            } else
+            {
+                bdateCaution.Visible = false;
+            }
         }
 
         private void PasswordTextBox_TextChanged(object sender, EventArgs e)
         {
-
+            int counter = 0;
+            for (int i = 0; i < PasswordTextBox.Text.Length; i++)
+            {
+                // If the character is uppercase, add +1 to the counter
+                if (char.IsUpper(PasswordTextBox.Text[i]))
+                {
+                    counter++;
+                }
+            }
+            if (counter == 0 && PasswordTextBox.Text.Length < 6)
+            {
+                passwCaution.Visible = true;
+            } else
+            {
+                passwCaution.Visible = false;
+            }
         }
 
         private void PasswordConfTextBox_TextChanged(object sender, EventArgs e)
         {
-
+            if(!PasswordTextBox.Text.Equals(PasswordConfTextBox.Text))
+            {
+                confCaution.Visible = true;
+            } else
+            {
+                confCaution.Visible = false;
+            }
         }
 
         private void signUpButton_Click(object sender, EventArgs e)
@@ -55,39 +109,11 @@ namespace Blaze
             string birthDate = BirthdateTextBox.Text;
             string password = PasswordTextBox.Text;
             string passwordConf = PasswordConfTextBox.Text;
-            DateTime birthDateG;
             
-            if (true)
+            
+            if (string.IsNullOrEmpty(usrName) && string.IsNullOrEmpty(""))
             {
-            }
-            // Kullanıcı adı boş mu kontrol et
-            if (string.IsNullOrEmpty(usrName))
-            {
-                MessageBox.Show("Kullanıcı adı boş olamaz.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            // E-posta formatını kontrol et
-            if (!IsValidEmail(usrMail))
-            {
-                MessageBox.Show("Geçersiz e-posta formatı.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            if (!DateTime.TryParse(birthDate, out birthDateG))
-            {
-                MessageBox.Show("Geçersiz doğum tarihi formatı. Lütfen doğru formatta bir tarih girin.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            // Şifre uzunluğunu kontrol et
-            if (password.Length < 6)
-            {
-                MessageBox.Show("Şifre en az 6 karakter olmalıdır.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            if (password != passwordConf)
-            {
-                MessageBox.Show("Girilen şifreler eşleşmiyor.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                
             }
             // Kayıt işlemini başlat
             RegisterUser(usrName, usrMail, password, birthDateG);
@@ -184,6 +210,5 @@ namespace Blaze
             }
         }
 
-        
     }
 }

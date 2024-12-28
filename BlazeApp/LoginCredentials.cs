@@ -6,10 +6,12 @@ using System.Threading.Tasks;
 
 namespace Blaze
 {
-    internal static class LoginCredentials
+    public static class LoginCredentials
     {
-        static string usernameOrEmail;
-        static string password;
+        public static string usernameOrEmail;
+        public static string password;
+
+        public static bool keepLogin;
     }
 }
 
