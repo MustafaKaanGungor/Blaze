@@ -130,6 +130,7 @@
             this.pictureBox1.Size = new System.Drawing.Size(67, 50);
             this.pictureBox1.TabIndex = 8;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // mailText
             // 
@@ -141,6 +142,7 @@
             this.mailText.Size = new System.Drawing.Size(78, 37);
             this.mailText.TabIndex = 9;
             this.mailText.Text = "text";
+            this.mailText.Click += new System.EventHandler(this.mailText_Click);
             // 
             // birthDateText
             // 

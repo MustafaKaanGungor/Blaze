@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Npgsql;
 
 namespace Blaze
 {
@@ -20,6 +21,21 @@ namespace Blaze
             InitializeComponent();
         }
 
+        
+        public static class DatabaseConfig
+        {
+            // Bağlantı stringini burada saklayın
+            public static string baglanti { get; } = "server = localHost; port = 5432; Database = Blaze;" +
+            " user ID = postgres; password = 123";
+        }
+        private void LoadUserID()
+        {
+            NpgsqlConnection baglanti = new NpgsqlConnection(DatabaseConfig.baglanti);
+            string query = "SELECT uName, uEmail, birthDate FROM Users";
+
+            baglanti.Open();
+
+        }
         //ÜST MENÜ TUŞLARI-----------------------------------------------
         private void ExitButton_Click(object sender, EventArgs e)
         {
@@ -133,6 +149,11 @@ namespace Blaze
         private void AccountForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             accountForm = null;
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

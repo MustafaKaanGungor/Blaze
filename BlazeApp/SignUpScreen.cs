@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-//using Npgsql;
+using Npgsql;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
@@ -15,14 +15,14 @@ namespace Blaze
 {
     public partial class SignUpScreen : Form
     {
-        //NpgsqlConnection baglanti = new NpgsqlConnection("server = localHost; port = 5432; Database = Blaze;" +
-        //" user ID = postgres; password = 123");
-        
+        NpgsqlConnection baglanti = new NpgsqlConnection("server = localHost; port = 5432; Database = Blaze;" +
+        " user ID = postgres; password = 123");
+       
         public SignUpScreen()
         {
             InitializeComponent();
         }
-
+    
         private void mailTextBox_TextChanged(object sender, EventArgs e)
         {
 
@@ -122,6 +122,7 @@ namespace Blaze
             }
 
         }
+
         private bool IsValidEmail(string email)
         {
             try

@@ -7,14 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace Blaze
 {
 
     public partial class LoginScreen : Form
     {
-        //NpgsqlConnection baglanti = new NpgsqlConnection("server = localHost; port = 5432; Database = Blaze;" +
-        //" user ID = postgres; password = 123");
+        
 
 
         
@@ -38,6 +38,8 @@ namespace Blaze
             MainMenu menu = new MainMenu();
             menu.Show();
             this.Hide();
+
+
             /*
             string usrMail = mailTextBox.Text;
             string usrPassword = passwordTextBox.Text;
