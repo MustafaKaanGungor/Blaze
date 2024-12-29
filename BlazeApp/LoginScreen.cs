@@ -22,6 +22,34 @@ namespace Blaze
         public LoginScreen()
         {
             InitializeComponent();
+            if(LoginCredentials.keepLogin)
+            {
+                try
+                {
+                    string query = "SELECT * FROM Users WHERE (uName = '" + LoginCredentials.usernameOrEmail + "' OR uEmail = '" + LoginCredentials.usernameOrEmail + "')" +
+                        " AND uPassword = '" + LoginCredentials.password + "'";
+                    NpgsqlDataAdapter da = new NpgsqlDataAdapter(query, baglanti);
+
+                    DataTable dTable = new DataTable();
+                    da.Fill(dTable);
+
+                    if (dTable.Rows.Count > 0)
+                    {
+
+                        MainMenu menu1 = new MainMenu();
+                        menu1.Show();
+                        this.Hide();
+                    }
+                    else
+                    {
+                        cannotLogin.Visible = true;
+                    }
+                }
+                catch
+                {
+                    cannotConnect.Visible = true;
+                }
+            }
         }
 
         NpgsqlConnection baglanti = new NpgsqlConnection("server = localHost; port = 5432; Database = SteamClone;" +

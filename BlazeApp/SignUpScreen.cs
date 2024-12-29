@@ -109,11 +109,14 @@ namespace Blaze
             string birthDate = BirthdateTextBox.Text;
             string password = PasswordTextBox.Text;
             string passwordConf = PasswordConfTextBox.Text;
-            
-            
-            if (string.IsNullOrEmpty(usrName) && string.IsNullOrEmpty(""))
+
+
+            if (string.IsNullOrEmpty(usrName) && string.IsNullOrEmpty(usrMail) && string.IsNullOrEmpty(password) && string.IsNullOrEmpty(birthDate))
             {
-                
+                label6.Visible = true;
+            }
+            else { 
+                label6.Visible=false;
             }
             // Kayıt işlemini başlat
             RegisterUser(usrName, usrMail, password, birthDateG);
@@ -128,22 +131,20 @@ namespace Blaze
 
             // Veritabanına kullanıcıyı eklemek için SQL sorgusu
             string query = "INSERT INTO Users (uName, uEmail, uPassword,birthDate,role) VALUES (@Username, @Email, @Password,@birthDay,'PersonelUser')";
-            //using (var command = new Npgsql.NpgsqlCommand(query, baglanti))
+            using (var command = new Npgsql.NpgsqlCommand(query, baglanti))
             {
                 // Parametreleri ekle
-                //command.Parameters.AddWithValue("@Username", username);
-                //command.Parameters.AddWithValue("@Email", email);
-                //command.Parameters.AddWithValue("@Password", password);
-                //command.Parameters.AddWithValue("@birthDay", birthDay);
+                command.Parameters.AddWithValue("@Username", username);
+                command.Parameters.AddWithValue("@Email", email);
+                command.Parameters.AddWithValue("@Password", password);
+                command.Parameters.AddWithValue("@birthDay", birthDay);
                 try
                 {
-                    //command.ExecuteNonQuery();
-                    MessageBox.Show("Kayıt başarılı!", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    //baglanti.Close();
+                    command.ExecuteNonQuery();
+                    baglanti.Close();
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Kayıt sırasında hata oluştu: " + ex.Message, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
 
@@ -209,6 +210,5 @@ namespace Blaze
                 Location = new Point(p.X - this._start_point.X, p.Y - this._start_point.Y);
             }
         }
-
     }
 }
