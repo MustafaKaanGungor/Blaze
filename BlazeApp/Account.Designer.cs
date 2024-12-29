@@ -39,6 +39,7 @@
             this.mailText = new System.Windows.Forms.Label();
             this.birthDateText = new System.Windows.Forms.Label();
             this.creationDateText = new System.Windows.Forms.Label();
+            this.editProfile = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -166,12 +167,28 @@
             this.creationDateText.TabIndex = 11;
             this.creationDateText.Text = "text";
             // 
+            // editProfile
+            // 
+            this.editProfile.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.editProfile.FlatAppearance.BorderSize = 3;
+            this.editProfile.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.editProfile.Font = new System.Drawing.Font("Lucida Sans Unicode", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.editProfile.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(90)))), ((int)(((byte)(30)))));
+            this.editProfile.Location = new System.Drawing.Point(920, 69);
+            this.editProfile.Name = "editProfile";
+            this.editProfile.Size = new System.Drawing.Size(179, 47);
+            this.editProfile.TabIndex = 12;
+            this.editProfile.Text = "Edit Profile";
+            this.editProfile.UseVisualStyleBackColor = true;
+            this.editProfile.Click += new System.EventHandler(this.editProfile_Click);
+            // 
             // Account
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
             this.ClientSize = new System.Drawing.Size(1185, 762);
+            this.Controls.Add(this.editProfile);
             this.Controls.Add(this.creationDateText);
             this.Controls.Add(this.birthDateText);
             this.Controls.Add(this.mailText);
@@ -207,5 +224,6 @@
         private System.Windows.Forms.Label mailText;
         private System.Windows.Forms.Label birthDateText;
         private System.Windows.Forms.Label creationDateText;
+        private System.Windows.Forms.Button editProfile;
     }
 }

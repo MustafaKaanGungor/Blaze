@@ -16,9 +16,6 @@ namespace Blaze
     public partial class LoginScreen : Form
     {
         
-
-
-        
         public LoginScreen()
         {
             InitializeComponent();
@@ -42,7 +39,6 @@ namespace Blaze
                     }
                     else
                     {
-                        cannotLogin.Visible = true;
                     }
                 }
                 catch
@@ -87,11 +83,8 @@ namespace Blaze
 
                 if (dTable.Rows.Count > 0)
                 {
-                    if (LoginCredentials.keepLogin == true)
-                    {
-                        LoginCredentials.usernameOrEmail = usrMail;
-                        LoginCredentials.password = usrPassword;
-                    }
+                    LoginCredentials.usernameOrEmail = usrMail;
+                    LoginCredentials.password = usrPassword;
 
                     MainMenu menu1 = new MainMenu();
                     menu1.Show();

@@ -93,5 +93,15 @@ namespace Blaze
         {
 
         }
+
+        private void editProfile_Click(object sender, EventArgs e)
+        {
+            EditProfile edit = new EditProfile();
+            edit.MdiParent = this.MdiParent;
+            edit.Dock = DockStyle.Fill;
+            edit.Show();
+            this.Hide();
+
+        }
     }
 }

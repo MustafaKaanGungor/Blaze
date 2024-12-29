@@ -19,6 +19,19 @@ namespace Blaze
         public MainMenu()
         {
             InitializeComponent();
+
+            if (libraryForm == null)
+            {
+                libraryForm = new Library();
+                libraryForm.FormClosed += LibraryForm_FormClosed;
+                libraryForm.MdiParent = this;
+                libraryForm.Dock = DockStyle.Fill;
+                libraryForm.Show();
+            }
+            else
+            {
+                libraryForm.Activate();
+            }
         }
 
         
