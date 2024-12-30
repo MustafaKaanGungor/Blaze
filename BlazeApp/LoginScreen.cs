@@ -19,7 +19,7 @@ namespace Blaze
         public LoginScreen()
         {
             InitializeComponent();
-            if(LoginCredentials.keepLogin)
+            if (LoginCredentials.keepLogin)
             {
                 try
                 {
@@ -70,11 +70,11 @@ namespace Blaze
             {
                 string query = "SELECT * FROM Users WHERE (uName = '" + usrMail + "' OR uEmail = '" + usrMail + "')" +
                     " AND uPassword = '" + usrPassword + "'";
-                NpgsqlDataAdapter da = new NpgsqlDataAdapter(query, baglanti);
 
+                NpgsqlDataAdapter da = new NpgsqlDataAdapter(query, baglanti);
+                
                 DataTable dTable = new DataTable();
                 da.Fill(dTable);
-            
                 if (dTable.Rows.Count > 0)
                 {
                     LoginCredentials.usernameOrEmail = usrMail;
@@ -84,12 +84,14 @@ namespace Blaze
                     menu1.Show();
                     this.Hide();
                     baglanti.Close();
-                } else
+                }
+                else
                 {
                     cannotLogin.Visible = true;
                 }
             }
-            catch { 
+            catch
+            {
                 cannotConnect.Visible = true;
             }
         }

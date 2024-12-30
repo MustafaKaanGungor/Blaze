@@ -128,8 +128,8 @@ namespace Blaze
         private void RegisterUser(string username, string email, string password, DateTime birthDay)
         {
             // Veritabanı bağlantısı oluştur
-            
 
+            baglanti.Open();
 
 
             // Veritabanına kullanıcıyı eklemek için SQL sorgusu
@@ -151,6 +151,7 @@ namespace Blaze
                 }
                 catch (Exception ex)
                 {
+                    label6.Text = $"Kayıt başarısız: {ex.Message}";
                     label6.Visible = true;
                 }
             }

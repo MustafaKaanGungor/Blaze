@@ -13,5 +13,6 @@ namespace Blaze
 
         public static bool keepLogin;
 
+        public static int uID;
     }
 }
