@@ -17,7 +17,8 @@ namespace Blaze
     {
         NpgsqlConnection baglanti = new NpgsqlConnection("server = localHost; port = 5432; Database = Blaze;" +
         " user ID = postgres; password = 123");
-        DateTime birthDateG;
+        
+        public DateTime birthDateG;
         public SignUpScreen()
         {
             InitializeComponent();
@@ -45,13 +46,13 @@ namespace Blaze
                 DataTable dTable = new DataTable();
                 da.Fill(dTable);
 
-                if (!(dTable.Rows.Count > 0))
+                if ((dTable.Rows.Count > 0))
                 {
                     usrnameCaution.Visible = true;
                 }
                 else
                 {
-                    usrnameCaution.Visible = false;
+                    usrnameCaution.Visible = true;
                 }
             }
             catch
@@ -111,9 +112,11 @@ namespace Blaze
             string passwordConf = PasswordConfTextBox.Text;
 
 
-            if (string.IsNullOrEmpty(usrName) && string.IsNullOrEmpty(usrMail) && string.IsNullOrEmpty(password) && string.IsNullOrEmpty(birthDate))
+            if (string.IsNullOrEmpty(usrName) || string.IsNullOrEmpty(usrMail) || string.IsNullOrEmpty(password) || string.IsNullOrEmpty(birthDate))
             {
+                label6.Text = "Tüm alanları doldurmanız gerekiyor.";
                 label6.Visible = true;
+                return;
             }
             else { 
                 label6.Visible=false;
@@ -125,12 +128,12 @@ namespace Blaze
         private void RegisterUser(string username, string email, string password, DateTime birthDay)
         {
             // Veritabanı bağlantısı oluştur
-
+            
 
 
 
             // Veritabanına kullanıcıyı eklemek için SQL sorgusu
-            string query = "INSERT INTO Users (uName, uEmail, uPassword,birthDate,role) VALUES (@Username, @Email, @Password,@birthDay,'PersonelUser')";
+            string query = "INSERT INTO Users (uName, uEmail, uPassword,birthDate,role) VALUES (@Username, @Email, @Password,@birthDay,'PersonalUser')";
             using (var command = new Npgsql.NpgsqlCommand(query, baglanti))
             {
                 // Parametreleri ekle
@@ -142,9 +145,13 @@ namespace Blaze
                 {
                     command.ExecuteNonQuery();
                     baglanti.Close();
+                    LoginScreen loginScreen = new LoginScreen();
+                    loginScreen.Show();
+                    this.Hide();
                 }
                 catch (Exception ex)
                 {
+                    label6.Visible = true;
                 }
             }
 

@@ -48,18 +48,12 @@ namespace Blaze
             }
         }
 
-        NpgsqlConnection baglanti = new NpgsqlConnection("server = localHost; port = 5432; Database = SteamClone;" +
+        NpgsqlConnection baglanti = new NpgsqlConnection("server = localHost; port = 5432; Database = Blaze;" +
     " user ID = postgres; password = 123");
 
         private void mailTextBox_TextChanged(object sender, EventArgs e)
         {
-            if(!mailTextBox.Text.EndsWith(".com") || !mailTextBox.Text.Contains("@"))
-            {
-                mailCaution.Visible = true;
-            } else
-            {
-                mailCaution.Visible = false;
-            }
+            
         }
 
         private void passwordTextBox_TextChanged(object sender, EventArgs e)
@@ -80,7 +74,7 @@ namespace Blaze
 
                 DataTable dTable = new DataTable();
                 da.Fill(dTable);
-
+            
                 if (dTable.Rows.Count > 0)
                 {
                     LoginCredentials.usernameOrEmail = usrMail;
@@ -89,6 +83,7 @@ namespace Blaze
                     MainMenu menu1 = new MainMenu();
                     menu1.Show();
                     this.Hide();
+                    baglanti.Close();
                 } else
                 {
                     cannotLogin.Visible = true;
@@ -172,5 +167,9 @@ namespace Blaze
             }
         }
 
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+        }
     }
 }
