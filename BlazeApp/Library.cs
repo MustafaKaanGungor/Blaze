@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Npgsql;
 
 namespace Blaze
 {
@@ -16,23 +17,41 @@ namespace Blaze
         {
             InitializeComponent();
         }
-
+        NpgsqlConnection baglanti = new NpgsqlConnection("server = localHost; port = 5432; Database = Blaze;" +
+        " user ID = postgres; password = 123");
         private void Library_Load(object sender, EventArgs e)
         {
-            //this.ControlBox = false;
-            //Panel newPanel = new Panel();
-            //PictureBox pictureBox = new PictureBox();
-            //newPanel.Controls.Add(pictureBox);
 
-            //newPanel.Size = new System.Drawing.Size(400, 400);
-            //pictureBox.BackColor = System.Drawing.SystemColors.ActiveCaption;
-
-            //this.tableLayoutPanel1.Controls.Add(panel1);
-            //this.tableLayoutPanel1.Controls.Add(newPanel);
-
-            
+           
         }
+        public void UpdateLibraryForm(int uID)
+        {
+            try
+            {
+                // Kullanıcıya ait oyunları çekmek için UserGames View'ını kullanıyoruz.
+                string query = "SELECT title, description, genre, purchaseDate FROM UserGames WHERE uID = @userID";
 
+                using (var command = new Npgsql.NpgsqlCommand(query, baglanti))
+                {
+                    // Kullanıcının ID'sini parametre olarak ekliyoruz
+                    command.Parameters.AddWithValue("@userID", LoginCredentials.uID);
+
+                    // Verileri çekmek için NpgsqlDataAdapter kullanıyoruz
+                    NpgsqlDataAdapter da = new NpgsqlDataAdapter(command);
+                    DataSet ds = new DataSet();
+
+                    // Veriyi DataSet'e dolduruyoruz
+                    da.Fill(ds);
+
+                    // DataGridView'e veriyi bağlıyoruz
+                    dataGridView1.DataSource = ds.Tables[0];
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Hata oluştu: {ex.Message}", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
         private void gameOrderBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             //oyunların sıralamasını değiştir

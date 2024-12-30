@@ -61,24 +61,27 @@ namespace Blaze
 
             try
             {
-                string query = "INSERT INTO Library (uID, gID, playTime) VALUES (@userID, @gameID, 0)";
+                string query = "SELECT add_to_library(@userID, @gameID)";
                 using (var command = new Npgsql.NpgsqlCommand(query, baglanti))
                 {
-                    command.Parameters.AddWithValue("@userID", LoginCredentials.uID); // Giriş yapan kullanıcı
-                    command.Parameters.AddWithValue("@gameID", gID); // Seçilen oyun
+                    command.Parameters.AddWithValue("@userID", LoginCredentials.uID);
+                    command.Parameters.AddWithValue("@gameID", gID);
 
                     if (baglanti.State != ConnectionState.Open)
                         baglanti.Open();
 
                     command.ExecuteNonQuery();
-                    MessageBox.Show("Oyun başarıyla satın alındı!", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                    baglanti.Close();
+                    MessageBox.Show("Oyun başarıyla kütüphanenize eklendi!", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Library libraryForm = Application.OpenForms.OfType<Library>().FirstOrDefault();
+                    if (libraryForm != null)
+                    {
+                        libraryForm.UpdateLibraryForm(gID);
+                    }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Hata oluştu: {ex.Message}", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Hata oluştu: {ex.Message}", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             finally
             {
@@ -86,5 +89,6 @@ namespace Blaze
                     baglanti.Close();
             }
         }
+       
     }
 }
