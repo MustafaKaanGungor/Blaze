@@ -28,6 +28,7 @@ namespace Blaze
                 NpgsqlDataAdapter da = new NpgsqlDataAdapter(query, baglanti);
                 DataSet ds = new DataSet();
                 da.Fill(ds);
+                dataGridView1.DataSource = ds.Tables[0];
             }
             catch { 
                 

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using Npgsql;
+using System.Data.SqlClient;
 
 namespace Blaze
 {
@@ -68,31 +69,62 @@ namespace Blaze
 
             try
             {
-                string query = "SELECT * FROM Users WHERE (uName = '" + usrMail + "' OR uEmail = '" + usrMail + "')" +
-                    " AND uPassword = '" + usrPassword + "'";
-
-                NpgsqlDataAdapter da = new NpgsqlDataAdapter(query, baglanti);
+                // Parametreli SQL sorgusu
+                string query = "SELECT * FROM Users WHERE (uName = @usrMail OR uEmail = @usrMail) AND uPassword = @usrPassword";
                 
+                // Veri tablosu oluştur
+                DataTable dataTable = new DataTable();
                 DataTable dTable = new DataTable();
-                da.Fill(dTable);
+                //using (var da1 = new NpgsqlDataAdapter(query1, baglanti))
+                //{
+                    
+                //    da1.Fill(dataTable);
+                //}
+                //if (dataTable.Rows.Count > 0) {
+                //    LoginCredentials.uID = (dataTable.Rows[0]["uID"].ToString());
+                //}
+                // DataAdapter kullanarak veriyi al
+                using (var da = new NpgsqlDataAdapter(query, baglanti))
+                {
+                    // Parametreleri ekle
+                    da.SelectCommand.Parameters.AddWithValue("@usrMail", usrMail);
+                    da.SelectCommand.Parameters.AddWithValue("@usrPassword", usrPassword);
+
+                    // DataTable'a veriyi doldur
+                    da.Fill(dTable);
+                }
+                ////
+
+
+                // Eğer kayıt bulunduysa işlemleri yap
                 if (dTable.Rows.Count > 0)
                 {
+                    // userID değerini CurrentUser sınıfına ata
+                    
+                    LoginCredentials.uID = GetKullaniciID(usrMail, usrPassword);
+                    Console.WriteLine(LoginCredentials.uID);
+                    // Kullanıcı bilgilerini sakla (isteğe bağlı)
                     LoginCredentials.usernameOrEmail = usrMail;
                     LoginCredentials.password = usrPassword;
 
+                    // Ana menüyü göster
                     MainMenu menu1 = new MainMenu();
                     menu1.Show();
                     this.Hide();
+
                     baglanti.Close();
                 }
                 else
                 {
+                    // Giriş başarısız
                     cannotLogin.Visible = true;
                 }
             }
-            catch
+            catch (Exception ex)
             {
+                // Bağlantı hatası
                 cannotConnect.Visible = true;
+                Console.WriteLine($"Hata: {ex.Message}");
             }
         }
 
@@ -171,6 +203,21 @@ namespace Blaze
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            
+        }
+        private int GetKullaniciID(string email, string sifre)
+        {
+
+            string query1 = "SELECT uID FROM Users WHERE (uName = @usernameOrEmail OR uEmail = @usernameOrEmail) AND uPassword = @password";
+            NpgsqlCommand command = new NpgsqlCommand(query1, baglanti);
+                command.Parameters.AddWithValue("usernameOrEmail", email);
+                command.Parameters.AddWithValue("password", sifre);
+               
+                baglanti.Open();
+                object result = command.ExecuteScalar();
+                
+
+                return result != null ? Convert.ToInt32(result) : 0;
             
         }
     }
