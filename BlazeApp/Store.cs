@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -19,52 +20,70 @@ namespace Blaze
         }
         int gID;
         NpgsqlConnection baglanti = new NpgsqlConnection("server = localHost; port = 5432; Database = Blaze;" +
-        " user ID = postgres; password = 123");
+    " user ID = postgres; password = 123");
         private void Store_Load(object sender, EventArgs e)
         {
-            this.ControlBox = false;
+            this.ControlBox = false; // Pencerenin kapat düğmesini devre dışı bırak
             try
             {
-                string query = "SELECT * FROM Games";
+                string query = "SELECT * FROM Games"; // Tüm oyunları getir
                 NpgsqlDataAdapter da = new NpgsqlDataAdapter(query, baglanti);
                 DataSet ds = new DataSet();
                 da.Fill(ds);
-                dataGridView1.DataSource = ds.Tables[0];
+                dataGridView1.DataSource = ds.Tables[0]; // Oyunları DataGridView'e yükle
             }
-            catch { 
-                
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Hata oluştu: {ex.Message}", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex == 0)
+            if (e.RowIndex >= 0) // Tıklanan satırın geçerli olduğundan emin olun
             {
                 DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
 
-                object selectedgID = row.Cells["gID"].Value;
-                gID = Convert.ToInt32(selectedgID);
-            } 
+                if (row.Cells["gID"].Value != null) // gID'nin null olmadığını kontrol edin
+                {
+                    gID = Convert.ToInt32(row.Cells["gID"].Value); // Seçilen gID'yi al
+                }
+            }
         }
 
         private void buyButton_Click(object sender, EventArgs e)
         {
+            if (gID == 0)
+            {
+                MessageBox.Show("Lütfen bir oyun seçin.", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             try
             {
-                baglanti.Open();
                 string query = "INSERT INTO Library (uID, gID, playTime) VALUES (@userID, @gameID, 0)";
                 using (var command = new Npgsql.NpgsqlCommand(query, baglanti))
                 {
-                    command.Parameters.AddWithValue("@userID", LoginCredentials.uID);
-                    command.Parameters.AddWithValue("gameID", gID);
+                    command.Parameters.AddWithValue("@userID", LoginCredentials.uID); // Giriş yapan kullanıcı
+                    command.Parameters.AddWithValue("@gameID", gID); // Seçilen oyun
+
+                    if (baglanti.State != ConnectionState.Open)
+                        baglanti.Open();
 
                     command.ExecuteNonQuery();
+                    MessageBox.Show("Oyun başarıyla satın alındı!", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                     baglanti.Close();
                 }
-
-            } catch { 
-            
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Hata oluştu: {ex.Message}", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                if (baglanti.State == ConnectionState.Open)
+                    baglanti.Close();
             }
         }
     }
