@@ -26,56 +26,58 @@ namespace Blaze
             " user ID = postgres; password = 123");
         private void Account_Load(object sender, EventArgs e)
         {
-            this.ControlBox = false;
+            // Daha önce saklanan uID'yi kullan
+            int userID = LoginCredentials.uID;
 
+            // Veritabanından kullanıcı bilgilerini çek
+            string query = "SELECT uName, uEmail, birthDate, createdAt FROM Users WHERE uID = @uID";
 
-            try
+            using (var command = new NpgsqlCommand(query, baglanti))
             {
-                string query = "SELECT uName, uEmail, birthDate FROM Users WHERE uID = @UserID";
-                NpgsqlDataAdapter da = new NpgsqlDataAdapter(query, baglanti);
+                // uID parametresini ekle
+                command.Parameters.AddWithValue("@uID", userID);
 
-                DataTable dTable = new DataTable();
-                da.Fill(dTable);
-
-                if (dTable.Rows.Count > 0)
+                try
                 {
-
-                }
-                // Kullanıcı ID'sini parametre olarak gönder
-                using (var command = new NpgsqlCommand(query, baglanti))
-                {
-                    command.Parameters.AddWithValue("@UserID", userID); // Kullanıcı ID'sini parametre olarak gönder
+                    // Bağlantıyı aç
+                    if (baglanti.State != ConnectionState.Open)
+                        baglanti.Open();
 
                     using (var reader = command.ExecuteReader())
                     {
-                        if (reader.Read())
+                        if (reader.Read()) // Kullanıcı bilgileri bulunduysa
                         {
-                            // Kullanıcı bilgilerini al ve formdaki alanlara doldur
+                            // Form elemanlarına bilgileri doldur
                             usernameText.Text = reader["uName"].ToString();
                             mailText.Text = reader["uEmail"].ToString();
-                            birthDateText.Text = Convert.ToDateTime(reader["birthDate"]).ToString("yyyy-MM-dd");
-                            creationDateText.Text = reader["createdAt"].ToString();
+                            birthDateText.Text = Convert.ToDateTime(reader["birthDate"]).ToShortDateString();
+                            creationDateText.Text = $"Hesap Oluşturulma Tarihi: {Convert.ToDateTime(reader["createdAt"]).ToShortDateString()}";
                         }
                         else
                         {
                             MessageBox.Show("Kullanıcı bilgileri bulunamadı.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
-
-
-
                     }
                 }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Hata oluştu: {ex.Message}", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    // Bağlantıyı kapat
+                    if (baglanti.State == ConnectionState.Open)
+                        baglanti.Close();
+                }
             }
-            catch { }
-            //Data yüklenecek
-            //usernameText.Text = "";
-            //mailText.Text = string.Empty;
-            //birthDateText.Text = string.Empty;
-            //creationDateText.Text = string.Empty;
-
-            //profil fotoğrafı kısmı da sonra halledilcek
         }
+        //Data yüklenecek
+        //usernameText.Text = "";
+        //mailText.Text = string.Empty;
+        //birthDateText.Text = string.Empty;
+        //creationDateText.Text = string.Empty;
 
+        //profil fotoğrafı kısmı da sonra halledilcek
         private void button2_Click(object sender, EventArgs e)
         {
             LoginScreen login = new LoginScreen();

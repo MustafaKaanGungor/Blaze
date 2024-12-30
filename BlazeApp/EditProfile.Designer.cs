@@ -28,39 +28,41 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.mailTextBox = new System.Windows.Forms.TextBox();
+            this.userNameTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.birthDateTextBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.loginButton = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.mailTextBox = new System.Windows.Forms.TextBox();
+            this.userNameButton = new System.Windows.Forms.Button();
+            this.mailButton = new System.Windows.Forms.Button();
+            this.birthDateButton = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // mailTextBox
+            // userNameTextBox
             // 
-            this.mailTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(49)))));
-            this.mailTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.mailTextBox.Font = new System.Drawing.Font("Lucida Sans Unicode", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.mailTextBox.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.mailTextBox.Location = new System.Drawing.Point(71, 196);
-            this.mailTextBox.Name = "mailTextBox";
-            this.mailTextBox.Size = new System.Drawing.Size(384, 38);
-            this.mailTextBox.TabIndex = 3;
-            this.mailTextBox.TextChanged += new System.EventHandler(this.mailTextBox_TextChanged);
+            this.userNameTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(49)))));
+            this.userNameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.userNameTextBox.Font = new System.Drawing.Font("Lucida Sans Unicode", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.userNameTextBox.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.userNameTextBox.Location = new System.Drawing.Point(53, 159);
+            this.userNameTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.userNameTextBox.Name = "userNameTextBox";
+            this.userNameTextBox.Size = new System.Drawing.Size(288, 32);
+            this.userNameTextBox.TabIndex = 3;
+            this.userNameTextBox.TextChanged += new System.EventHandler(this.mailTextBox_TextChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Lucida Sans Unicode", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(90)))), ((int)(((byte)(30)))));
-            this.label1.Location = new System.Drawing.Point(62, 50);
+            this.label1.Location = new System.Drawing.Point(46, 41);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(259, 53);
+            this.label1.Size = new System.Drawing.Size(211, 42);
             this.label1.TabIndex = 4;
             this.label1.Text = "Edit Profile";
             // 
@@ -69,9 +71,10 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Lucida Sans Unicode", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label2.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.label2.Location = new System.Drawing.Point(86, 156);
+            this.label2.Location = new System.Drawing.Point(64, 127);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(153, 23);
+            this.label2.Size = new System.Drawing.Size(129, 20);
             this.label2.TabIndex = 5;
             this.label2.Text = "New Username";
             // 
@@ -80,85 +83,92 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Lucida Sans Unicode", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label3.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.label3.Location = new System.Drawing.Point(86, 440);
+            this.label3.Location = new System.Drawing.Point(64, 358);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(152, 23);
+            this.label3.Size = new System.Drawing.Size(128, 20);
             this.label3.TabIndex = 7;
             this.label3.Text = "New Birth Date";
             // 
-            // textBox1
+            // birthDateTextBox
             // 
-            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(49)))));
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Font = new System.Drawing.Font("Lucida Sans Unicode", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.textBox1.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.textBox1.Location = new System.Drawing.Point(71, 480);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(384, 38);
-            this.textBox1.TabIndex = 6;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.birthDateTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(49)))));
+            this.birthDateTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.birthDateTextBox.Font = new System.Drawing.Font("Lucida Sans Unicode", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.birthDateTextBox.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.birthDateTextBox.Location = new System.Drawing.Point(53, 390);
+            this.birthDateTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.birthDateTextBox.Name = "birthDateTextBox";
+            this.birthDateTextBox.Size = new System.Drawing.Size(288, 32);
+            this.birthDateTextBox.TabIndex = 6;
+            this.birthDateTextBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Lucida Sans Unicode", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label4.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.label4.Location = new System.Drawing.Point(86, 294);
+            this.label4.Location = new System.Drawing.Point(64, 239);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(97, 23);
+            this.label4.Size = new System.Drawing.Size(82, 20);
             this.label4.TabIndex = 9;
             this.label4.Text = "New Mail";
             // 
-            // textBox2
+            // mailTextBox
             // 
-            this.textBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(49)))));
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox2.Font = new System.Drawing.Font("Lucida Sans Unicode", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.textBox2.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.textBox2.Location = new System.Drawing.Point(71, 334);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(384, 38);
-            this.textBox2.TabIndex = 8;
-            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            this.mailTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(49)))));
+            this.mailTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.mailTextBox.Font = new System.Drawing.Font("Lucida Sans Unicode", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.mailTextBox.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.mailTextBox.Location = new System.Drawing.Point(53, 271);
+            this.mailTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.mailTextBox.Name = "mailTextBox";
+            this.mailTextBox.Size = new System.Drawing.Size(288, 32);
+            this.mailTextBox.TabIndex = 8;
+            this.mailTextBox.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
-            // loginButton
+            // userNameButton
             // 
-            this.loginButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(90)))), ((int)(((byte)(30)))));
-            this.loginButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.loginButton.Font = new System.Drawing.Font("Lucida Sans Unicode", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.loginButton.Location = new System.Drawing.Point(512, 196);
-            this.loginButton.Name = "loginButton";
-            this.loginButton.Size = new System.Drawing.Size(199, 39);
-            this.loginButton.TabIndex = 10;
-            this.loginButton.Text = "Change Username";
-            this.loginButton.UseVisualStyleBackColor = false;
-            this.loginButton.Click += new System.EventHandler(this.loginButton_Click);
+            this.userNameButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(90)))), ((int)(((byte)(30)))));
+            this.userNameButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.userNameButton.Font = new System.Drawing.Font("Lucida Sans Unicode", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.userNameButton.Location = new System.Drawing.Point(384, 159);
+            this.userNameButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.userNameButton.Name = "userNameButton";
+            this.userNameButton.Size = new System.Drawing.Size(149, 32);
+            this.userNameButton.TabIndex = 10;
+            this.userNameButton.Text = "Change Username";
+            this.userNameButton.UseVisualStyleBackColor = false;
+            this.userNameButton.Click += new System.EventHandler(this.loginButton_Click);
             // 
-            // button1
+            // mailButton
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(90)))), ((int)(((byte)(30)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Font = new System.Drawing.Font("Lucida Sans Unicode", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.button1.Location = new System.Drawing.Point(512, 334);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(199, 39);
-            this.button1.TabIndex = 11;
-            this.button1.Text = "Change Mail";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.mailButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(90)))), ((int)(((byte)(30)))));
+            this.mailButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.mailButton.Font = new System.Drawing.Font("Lucida Sans Unicode", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.mailButton.Location = new System.Drawing.Point(384, 271);
+            this.mailButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.mailButton.Name = "mailButton";
+            this.mailButton.Size = new System.Drawing.Size(149, 32);
+            this.mailButton.TabIndex = 11;
+            this.mailButton.Text = "Change Mail";
+            this.mailButton.UseVisualStyleBackColor = false;
+            this.mailButton.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
+            // birthDateButton
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(90)))), ((int)(((byte)(30)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button2.Font = new System.Drawing.Font("Lucida Sans Unicode", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.button2.Location = new System.Drawing.Point(512, 479);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(199, 39);
-            this.button2.TabIndex = 12;
-            this.button2.Text = "Change Birth Date";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.birthDateButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(90)))), ((int)(((byte)(30)))));
+            this.birthDateButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.birthDateButton.Font = new System.Drawing.Font("Lucida Sans Unicode", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.birthDateButton.Location = new System.Drawing.Point(384, 389);
+            this.birthDateButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.birthDateButton.Name = "birthDateButton";
+            this.birthDateButton.Size = new System.Drawing.Size(149, 32);
+            this.birthDateButton.TabIndex = 12;
+            this.birthDateButton.Text = "Change Birth Date";
+            this.birthDateButton.UseVisualStyleBackColor = false;
+            this.birthDateButton.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -167,9 +177,10 @@
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button3.Font = new System.Drawing.Font("Lucida Sans Unicode", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.button3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(90)))), ((int)(((byte)(30)))));
-            this.button3.Location = new System.Drawing.Point(894, 63);
+            this.button3.Location = new System.Drawing.Point(670, 51);
+            this.button3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(179, 47);
+            this.button3.Size = new System.Drawing.Size(134, 38);
             this.button3.TabIndex = 13;
             this.button3.Text = "Back to Profile";
             this.button3.UseVisualStyleBackColor = true;
@@ -177,22 +188,23 @@
             // 
             // EditProfile
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
-            this.ClientSize = new System.Drawing.Size(1167, 715);
+            this.ClientSize = new System.Drawing.Size(875, 581);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.loginButton);
+            this.Controls.Add(this.birthDateButton);
+            this.Controls.Add(this.mailButton);
+            this.Controls.Add(this.userNameButton);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.mailTextBox);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.birthDateTextBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.mailTextBox);
+            this.Controls.Add(this.userNameTextBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "EditProfile";
             this.Text = "EditProfile";
             this.ResumeLayout(false);
@@ -202,16 +214,16 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox mailTextBox;
+        private System.Windows.Forms.TextBox userNameTextBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox birthDateTextBox;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Button loginButton;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox mailTextBox;
+        private System.Windows.Forms.Button userNameButton;
+        private System.Windows.Forms.Button mailButton;
+        private System.Windows.Forms.Button birthDateButton;
         private System.Windows.Forms.Button button3;
     }
 }
