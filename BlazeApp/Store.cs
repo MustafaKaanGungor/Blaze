@@ -17,6 +17,7 @@ namespace Blaze
         {
             InitializeComponent();
         }
+        int gID;
         NpgsqlConnection baglanti = new NpgsqlConnection("server = localHost; port = 5432; Database = Blaze;" +
         " user ID = postgres; password = 123");
         private void Store_Load(object sender, EventArgs e)
@@ -35,20 +36,34 @@ namespace Blaze
             }
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (e.RowIndex == 0)
+            {
+                DataGridViewRow row = dataGridView1.Rows[e.RowIndex];
+
+                object selectedgID = row.Cells["gID"].Value;
+                gID = Convert.ToInt32(selectedgID);
+            } 
+        }
+
+        private void buyButton_Click(object sender, EventArgs e)
+        {
             try
             {
-                string query = "update library " + dataGridView1.SelectedRows[0].DataBoundItem as String;
-                NpgsqlDataAdapter da = new NpgsqlDataAdapter(query, baglanti);
+                baglanti.Open();
+                string query = "INSERT INTO Library (uID, gID, playTime) VALUES (@userID, @gameID, 0)";
+                using (var command = new Npgsql.NpgsqlCommand(query, baglanti))
+                {
+                    command.Parameters.AddWithValue("@userID", LoginCredentials.uID);
+                    command.Parameters.AddWithValue("gameID", gID);
 
-            }
-            catch {
+                    command.ExecuteNonQuery();
+                    baglanti.Close();
+                }
+
+            } catch { 
             
             }
         }
