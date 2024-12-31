@@ -17,7 +17,30 @@ namespace Blaze
         public Library()
         {
             InitializeComponent();
-            
+            try
+            {
+                string query = "SELECT * FROM Library where uID = @userID";
+
+                using (var command = new Npgsql.NpgsqlCommand(query, baglanti))
+                {
+                    // Kullanıcının ID'sini parametre olarak ekliyoruz
+                    command.Parameters.AddWithValue("@userID", LoginCredentials.uID);
+                    var reader = command.ExecuteReader();
+
+                    NpgsqlDataAdapter da = new NpgsqlDataAdapter(command);
+                    DataSet ds = new DataSet();
+                    // Veriyi DataSet'e dolduruyoruz
+                    da.Fill(ds);
+
+                    // DataGridView'e veriyi bağlıyoruz
+                    dataGridView1.DataSource = ds.Tables[0];
+                    baglanti.Close();
+                }
+            }
+            catch
+            {
+
+            }
         }
         NpgsqlConnection baglanti = new NpgsqlConnection("server = localHost; port = 5432; Database = Blaze;" +
         " user ID = postgres; password = 123");
