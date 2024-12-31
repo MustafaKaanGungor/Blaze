@@ -16,6 +16,7 @@ namespace Blaze
         Store storeForm;
         Library libraryForm;
         Account accountForm;
+        AdminAccount adminAccountForm;
         public MainMenu()
         {
             InitializeComponent();
@@ -145,18 +146,39 @@ namespace Blaze
 
         private void button18_Click(object sender, EventArgs e)
         {
-            if (accountForm == null)
-            {
-                accountForm = new Account();
-                accountForm.FormClosed += AccountForm_FormClosed;
-                accountForm.MdiParent = this;
-                accountForm.Dock = DockStyle.Fill;
-                accountForm.Show();
+            Console.WriteLine(LoginCredentials.role);
+            if (LoginCredentials.role.Equals("Admin")) {
+                Console.WriteLine("heyo");
+                if (adminAccountForm == null)
+                {
+                    adminAccountForm = new AdminAccount();
+                    adminAccountForm.FormClosed += AdminAccountForm_FormClosed;
+                    adminAccountForm.MdiParent = this;
+                    adminAccountForm.Dock = DockStyle.Fill;
+                    adminAccountForm.Show();
+                }
+                else { adminAccountForm.Activate(); }
             }
-            else
-            {
-                accountForm.Activate();
+            else {
+                if (accountForm == null)
+                {
+
+                    accountForm = new Account();
+                    accountForm.FormClosed += AccountForm_FormClosed;
+                    accountForm.MdiParent = this;
+                    accountForm.Dock = DockStyle.Fill;
+                    accountForm.Show();
+                }
+                else
+                {
+                    accountForm.Activate();
+                }
             }
+        }
+
+        private void AdminAccountForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            adminAccountForm= null;
         }
 
         private void AccountForm_FormClosed(object sender, FormClosedEventArgs e)

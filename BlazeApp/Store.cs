@@ -73,10 +73,7 @@ namespace Blaze
                     command.ExecuteNonQuery();
                     MessageBox.Show("Oyun başarıyla kütüphanenize eklendi!", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Library libraryForm = Application.OpenForms.OfType<Library>().FirstOrDefault();
-                    if (libraryForm != null)
-                    {
-                        libraryForm.UpdateLibraryForm(gID);
-                    }
+                   
                 }
             }
             catch (Exception ex)

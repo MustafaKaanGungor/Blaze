@@ -46,10 +46,8 @@
             this.mailCaution = new System.Windows.Forms.Label();
             this.cannotLogin = new System.Windows.Forms.Label();
             this.cannotConnect = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -268,24 +266,12 @@
             this.cannotConnect.Text = "! Cannot connect to server";
             this.cannotConnect.Visible = false;
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(884, 227);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(240, 150);
-            this.dataGridView1.TabIndex = 14;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
             // LoginScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
             this.ClientSize = new System.Drawing.Size(1450, 800);
-            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.cannotConnect);
             this.Controls.Add(this.cannotLogin);
             this.Controls.Add(this.mailCaution);
@@ -307,7 +293,6 @@
             this.Load += new System.EventHandler(this.LoginScreen_Load);
             this.flowLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -333,6 +318,5 @@
         private System.Windows.Forms.Label mailCaution;
         private System.Windows.Forms.Label cannotLogin;
         private System.Windows.Forms.Label cannotConnect;
-        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

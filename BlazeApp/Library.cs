@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Common;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -16,35 +17,45 @@ namespace Blaze
         public Library()
         {
             InitializeComponent();
+            
         }
         NpgsqlConnection baglanti = new NpgsqlConnection("server = localHost; port = 5432; Database = Blaze;" +
         " user ID = postgres; password = 123");
+        
         private void Library_Load(object sender, EventArgs e)
         {
-
-           
+            
         }
-        public void UpdateLibraryForm(int uID)
+        public void UpdateLibraryForm()
         {
             try
             {
                 // Kullanıcıya ait oyunları çekmek için UserGames View'ını kullanıyoruz.
-                string query = "SELECT title, description, genre, purchaseDate FROM UserGames WHERE uID = @userID";
-
+                string query = "SELECT * FROM UserGames where uID = @userID";
+                
                 using (var command = new Npgsql.NpgsqlCommand(query, baglanti))
                 {
                     // Kullanıcının ID'sini parametre olarak ekliyoruz
                     command.Parameters.AddWithValue("@userID", LoginCredentials.uID);
+                    var reader = command.ExecuteReader();
+                    Console.WriteLine(  "fvhbjnjkmlmjnhggbhj");
+                    if (reader.Read())
+                    {
+                        foreach (DbDataRecord data in reader)
+                        {
+                            Console.WriteLine(data["title"]);
+                        }
+                    }
 
                     // Verileri çekmek için NpgsqlDataAdapter kullanıyoruz
                     NpgsqlDataAdapter da = new NpgsqlDataAdapter(command);
                     DataSet ds = new DataSet();
-
                     // Veriyi DataSet'e dolduruyoruz
                     da.Fill(ds);
 
                     // DataGridView'e veriyi bağlıyoruz
                     dataGridView1.DataSource = ds.Tables[0];
+                    baglanti.Close();
                 }
             }
             catch (Exception ex)

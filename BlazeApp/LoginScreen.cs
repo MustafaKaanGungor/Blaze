@@ -102,7 +102,9 @@ namespace Blaze
                     // userID değerini CurrentUser sınıfına ata
                     
                     LoginCredentials.uID = GetKullaniciID(usrMail, usrPassword);
+                    LoginCredentials.role = GetKullaniciRole(usrMail, usrPassword);
                     Console.WriteLine(LoginCredentials.uID);
+                    Console.WriteLine(LoginCredentials.role);
                     // Kullanıcı bilgilerini sakla (isteğe bağlı)
                     LoginCredentials.usernameOrEmail = usrMail;
                     LoginCredentials.password = usrPassword;
@@ -219,6 +221,19 @@ namespace Blaze
 
                 return result != null ? Convert.ToInt32(result) : 0;
             
+        }
+        private string GetKullaniciRole(string email, string sifre)
+        {
+            string query1 = "SELECT role FROM Users WHERE (uName = @usernameOrEmail OR uEmail = @usernameOrEmail) AND uPassword = @password";
+            NpgsqlCommand command = new NpgsqlCommand(query1, baglanti);
+            command.Parameters.AddWithValue("usernameOrEmail", email);
+            command.Parameters.AddWithValue("password", sifre);
+
+            
+            object result = command.ExecuteScalar();
+
+
+            return result != null ? Convert.ToString(result) : "";
         }
     }
 }
